@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://github.com/carpdiem/ember"
+  },
+  "license": "MIT",
+  "source": {
+    "identity": "hackernews:49232870",
+    "summary": "Show HN: Ember \u2013 Redshift safe color palettes",
+    "title": "Show HN: Ember \u2013 Redshift safe color palettes",
+    "url": "https://github.com/carpdiem/ember"
+  },
+  "source_commit": "bdc5b4268f9d20949fa6d5a3866660521b7852ec"
+}

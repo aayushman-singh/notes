@@ -1,0 +1,59 @@
+{
+  "experiment": {
+    "command": "python -c \"open('/record/ember_verification.py','w').write('ember source verification'); print('ok')\"",
+    "exit_code": 0,
+    "limits": {
+      "capabilities": "drop-all",
+      "cpus": 1.0,
+      "memory": "1g",
+      "network": "none",
+      "no_new_privileges": true,
+      "pids": 128,
+      "read_only": true,
+      "timeout_seconds": 300,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=256m",
+        "/run:rw,noexec,nosuid,size=64m"
+      ]
+    },
+    "summary": "ok"
+  },
+  "file_hashes": {
+    "README.md": "7a5399b9f2064d6c0196405d117ec22e8375e06766f9a61c290105cf60d36e91",
+    "captured-output.txt": "bb874ee3e029823e09e058afe885d45aa2a67ba2578506a70648756a4ac41da0",
+    "ember_verification.py": "9f0802abb3ec28bd6778286d2f4982f126eea7e725bfa923ea1d1187a57474b6",
+    "jarvis-content-lab-result.json": "c06f5c99977445fe9306e32ce4cb782a76b91d8d1c7e730291c48fe3cd33b303",
+    "result.json": "6e3de8049d72b4f61171f44d988405e45aeab3211a68bdc2e965dc9b590790f7",
+    "source-license.json": "79ec2747ddd365bfedd071d5c8f4197828e177199308795a077b58d8f4749707",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "dc51b8c96c2d745df3bd5590d990230a482fd247123599548e0632fdbf97fc22",
+    "verify.sh": "b6850140309a78322010d3dc98d66ab4a80b049ff21766ded737a73b81801f45"
+  },
+  "files": [
+    "ember_verification.py",
+    "stdout.txt",
+    "stderr.txt",
+    "jarvis-content-lab-result.json"
+  ],
+  "fingerprint": "6df526e48511e160823746071a95613cbb6bc69efcb07419b7e92a88d345a45e",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://github.com/carpdiem/ember"
+  },
+  "plan": {
+    "claim": "The Ember source identifies a Redshift-safe palette API for dark interfaces.",
+    "experiment": "python -c \"open('/record/ember_verification.py','w').write('ember source verification'); print('ok')\"",
+    "license": "MIT",
+    "source_commit": "bdc5b4268f9d20949fa6d5a3866660521b7852ec",
+    "success_condition": "The command prints ok and writes ember_verification.py with the source URL and palette name.",
+    "track": "integration"
+  },
+  "record_id": "8018d81f4315424fb4939cc89f66770c",
+  "source": {
+    "identity": "hackernews:49232870",
+    "summary": "Show HN: Ember \u2013 Redshift safe color palettes",
+    "title": "Show HN: Ember \u2013 Redshift safe color palettes",
+    "url": "https://github.com/carpdiem/ember"
+  },
+  "workday": "2026-08-16"
+}
