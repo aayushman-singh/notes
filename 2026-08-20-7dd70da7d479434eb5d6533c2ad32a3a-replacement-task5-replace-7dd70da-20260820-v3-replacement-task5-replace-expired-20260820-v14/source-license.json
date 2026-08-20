@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://www.raphaelbauer.com:443/posts/postgresql-everything/"
+  },
+  "license": "Unknown",
+  "source": {
+    "identity": "hackernews:49361279",
+    "summary": "PostgreSQL for Everything",
+    "title": "PostgreSQL for Everything",
+    "url": "https://www.raphaelbauer.com:443/posts/postgresql-everything/"
+  },
+  "source_commit": "https://www.raphaelbauer.com:443/posts/postgresql-everything/"
+}

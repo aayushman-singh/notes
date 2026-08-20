@@ -1,0 +1,59 @@
+{
+  "experiment": {
+    "command": "python3 -c \"import os; os.makedirs('/record', exist_ok=True); open('/record/postgresql_everything_demo.py', 'w').write('import sqlite3\\nconn = sqlite3.connect(\\\":memory:\\\")\\ncursor = conn.cursor()\\ncursor.execute(\\\"CREATE TABLE kv (key TEXT PRIMARY KEY, value TEXT)\\\")\\ncursor.execute(\\\"INSERT INTO kv VALUES (?, ?)\\\", (\\\"greeting\\\", \\\"hello from sqlite\\\"))\\nconn.commit()\\nprint(cursor.execute(\\\"SELECT value FROM kv WHERE key = ?\\\", (\\\"greeting\\\",)).fetchone()[0])\\nconn.close()\\n')\"",
+    "exit_code": 0,
+    "limits": {
+      "capabilities": "drop-all",
+      "cpus": 1.0,
+      "memory": "1g",
+      "network": "none",
+      "no_new_privileges": true,
+      "pids": 128,
+      "read_only": true,
+      "timeout_seconds": 300,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=256m",
+        "/run:rw,noexec,nosuid,size=64m"
+      ]
+    },
+    "summary": "Experiment completed successfully."
+  },
+  "file_hashes": {
+    "README.md": "f899a8a25d65a55f6720c941e14f2a4b01ef5c3d51d12b911fc87b17bc764e28",
+    "captured-output.txt": "943539a7f234cfa39e0db7c9b72714e7a460400bc51612db16a0679f9114bab1",
+    "jarvis-content-lab-result.json": "d791899f8bfae5bdfc72d07e8f917085b28025f2d4cd4fd4fc877fcc2d4d5b76",
+    "postgresql_everything_demo.py": "2c0a95a390f609992a10fc4b5b3f58247073b9fef11d548c96cc1dd3736d1070",
+    "result.json": "4a060297aa3bdd8302114d4ec06c57642c4d38b03cb2c8538920f955222a5e0e",
+    "source-license.json": "71d49604bfb43a3c178e1a4d7e44c811729fafe37db3ec949c3bdc2511e3444c",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "verify.sh": "e8bff85b41f4045bf63ff26f7a68b64705c58ee1cd04ef0b73c7292e2b4e6ba9"
+  },
+  "files": [
+    "postgresql_everything_demo.py",
+    "stdout.txt",
+    "stderr.txt",
+    "jarvis-content-lab-result.json"
+  ],
+  "fingerprint": "232400e55371c8afdd5671d231aa2d9eaa0ba32fb2637733d8200cab41ff8425",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.raphaelbauer.com:443/posts/postgresql-everything/"
+  },
+  "plan": {
+    "claim": "PostgreSQL can serve as a general-purpose backend for diverse application domains beyond traditional relational use cases.",
+    "experiment": "python3 -c \"import os; os.makedirs('/record', exist_ok=True); open('/record/postgresql_everything_demo.py', 'w').write('import sqlite3\\nconn = sqlite3.connect(\\\":memory:\\\")\\ncursor = conn.cursor()\\ncursor.execute(\\\"CREATE TABLE kv (key TEXT PRIMARY KEY, value TEXT)\\\")\\ncursor.execute(\\\"INSERT INTO kv VALUES (?, ?)\\\", (\\\"greeting\\\", \\\"hello from sqlite\\\"))\\nconn.commit()\\nprint(cursor.execute(\\\"SELECT value FROM kv WHERE key = ?\\\", (\\\"greeting\\\",)).fetchone()[0])\\nconn.close()\\n')\"",
+    "license": "Unknown",
+    "source_commit": "https://www.raphaelbauer.com:443/posts/postgresql-everything/",
+    "success_condition": "The command writes /record/postgresql_everything_demo.py and exits with code 0. The file contains a Python program that, when run, creates an in-memory SQLite database, inserts a key-value pair, retrieves it, and prints 'hello from sqlite' to stdout.",
+    "track": "integration"
+  },
+  "record_id": "7dd70da7d479434eb5d6533c2ad32a3a-replacement-task5-replace-7dd70da-20260820-v3-replacement-task5-replace-expired-20260820-v14",
+  "source": {
+    "identity": "hackernews:49361279",
+    "summary": "PostgreSQL for Everything",
+    "title": "PostgreSQL for Everything",
+    "url": "https://www.raphaelbauer.com:443/posts/postgresql-everything/"
+  },
+  "workday": "2026-08-20"
+}
