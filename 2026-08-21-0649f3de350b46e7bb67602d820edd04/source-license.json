@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://github.com/cesarblum/sectorforth"
+  },
+  "license": "MIT",
+  "source": {
+    "identity": "hackernews:49321934",
+    "summary": "Sectorforth is a 16-bit x86 Forth that fits in a 512-byte boot sector (2020)",
+    "title": "Sectorforth is a 16-bit x86 Forth that fits in a 512-byte boot sector (2020)",
+    "url": "https://github.com/cesarblum/sectorforth"
+  },
+  "source_commit": "https://github.com/cesarblum/sectorforth"
+}
