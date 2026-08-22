@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://openrouter.ai/stealth/ox-alpha"
+  },
+  "license": "Unknown",
+  "source": {
+    "identity": "hackernews:49381896",
+    "summary": "Ox Alpha",
+    "title": "Ox Alpha",
+    "url": "https://openrouter.ai/stealth/ox-alpha"
+  },
+  "source_commit": "https://openrouter.ai/stealth/ox-alpha"
+}
