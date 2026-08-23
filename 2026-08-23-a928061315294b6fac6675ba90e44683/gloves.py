@@ -1,0 +1,1 @@
+print("Electric shock gloves in use by Bellevue and Omaha police")
