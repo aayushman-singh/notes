@@ -1,0 +1,4 @@
+[stdout]
+latency_ms= 15
+
+[stderr]

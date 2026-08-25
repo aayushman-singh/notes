@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://pantel.is/projects/ai-gaming-companion/"
+  },
+  "license": "Not specified",
+  "source": {
+    "identity": "hackernews:49413561",
+    "summary": "I built a low-latency AI companion that plays Skyrim with me",
+    "title": "I built a low-latency AI companion that plays Skyrim with me",
+    "url": "https://pantel.is/projects/ai-gaming-companion/"
+  },
+  "source_commit": "N/A (web project, no commit specified)"
+}
