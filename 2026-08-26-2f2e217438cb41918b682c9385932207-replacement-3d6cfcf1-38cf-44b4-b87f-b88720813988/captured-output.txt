@@ -1,0 +1,4 @@
+[stdout]
+Text-to-Markdown conversion matches expected output for both test cases.
+
+[stderr]

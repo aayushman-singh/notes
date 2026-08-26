@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://github.com/dragthelake/ambient-context"
+  },
+  "license": "unknown",
+  "source": {
+    "identity": "hackernews:49429095",
+    "summary": "Show HN: Screen memory without screenshots, just text to Markdown",
+    "title": "Show HN: Screen memory without screenshots, just text to Markdown",
+    "url": "https://github.com/dragthelake/ambient-context"
+  },
+  "source_commit": "unknown"
+}
