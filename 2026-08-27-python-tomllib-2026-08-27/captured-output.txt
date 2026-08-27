@@ -1,0 +1,4 @@
+[stdout]
+Parsed workers=4.
+
+[stderr]

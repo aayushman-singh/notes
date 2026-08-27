@@ -1,0 +1,61 @@
+{
+  "experiment": {
+    "command": "python lesson.py",
+    "exit_code": 0,
+    "limits": {
+      "capabilities": "drop-all",
+      "cpus": 1.0,
+      "memory": "1g",
+      "network": "none",
+      "no_new_privileges": true,
+      "pids": 128,
+      "read_only": true,
+      "timeout_seconds": 60,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=256m",
+        "/run:rw,noexec,nosuid,size=64m"
+      ]
+    },
+    "summary": "Parsed workers=4."
+  },
+  "file_hashes": {
+    "README.md": "631359a658e99923cc5b63aeb343456f9bd31d387e68783474ca6a58ec219bc9",
+    "captured-output.txt": "f31f16d60bed6cf75bc00d45f6a8875c35aa42f3b89262e2e2fdb748cb65b844",
+    "implementation.py": "c070c627db2201b46ecd2effe34754f76cdf8656adb70f678f30d57ddb72c697",
+    "result-metadata.json": "1f1c496ddb4749d31f854cb6a86af9f7f0688fc27d944ed264fcfc9ebb5a820b",
+    "result.json": "b6a3498bcae04ec4fe733864c31a4a22437bf99c3d245608a4bb645719a3a7a3",
+    "source-license.json": "28bdae4b1ad854abc8be600113fc22e0934394109c6a7ba48fccf38273d103e9",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "d12481d5f4744236a3141e66d5ef7337e262e18d3a9546368f0bcfb27cf570f8",
+    "verify.sh": "5ccc9e6ad20bbcae8d12c4fdc68be8c24fb155dee542b7dc4a553dc0c092bb9e"
+  },
+  "files": [
+    "implementation.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json"
+  ],
+  "fingerprint": "460f6950e8444b78806614129ef2a45d4e898fd56ec850a6533f036989f2dabf",
+  "license_decision": "approved",
+  "license_evidence": {
+    "approval_request_id": "ea3928fa894556f32c110d5c8a8a4aec251082592d57c0535e9b46271b42ee1d",
+    "approval_version": 1,
+    "source_url": "https://docs.python.org/3/library/tomllib.html"
+  },
+  "plan": {
+    "claim": "Python tomllib parses a fixed TOML integer without another package.",
+    "experiment": "python lesson.py",
+    "license": "PSF-2.0",
+    "source_commit": "python-3.11",
+    "success_condition": "The parsed workers value is the integer four.",
+    "track": "reproduction"
+  },
+  "record_id": "python-tomllib-2026-08-27",
+  "source": {
+    "identity": "official:00f2bfaffea9c71bba8c8f87cf2dcf8d3fa509f09678acd9984edbeb61105bf1",
+    "summary": "Python Software Foundation official product_document.",
+    "title": "tomllib \u2014 Parse TOML files &#8212; Python 3.14.7 documentation",
+    "url": "https://docs.python.org/3/library/tomllib.html"
+  },
+  "workday": "2026-08-27"
+}

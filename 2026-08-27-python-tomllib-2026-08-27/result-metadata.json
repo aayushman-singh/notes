@@ -1,0 +1,36 @@
+{
+  "approval_request_id": "ea3928fa894556f32c110d5c8a8a4aec251082592d57c0535e9b46271b42ee1d",
+  "approval_version": 1,
+  "command": "python lesson.py",
+  "elapsed_seconds": 0.46899999999732245,
+  "exit_code": 0,
+  "image_digest": "sha256:acab0c3949eb9fc03ab82b9e7d36df4e85685845796f3da90f886f589e572374",
+  "limits": {
+    "capabilities": "drop-all",
+    "cpus": 1.0,
+    "memory": "1g",
+    "network": "none",
+    "no_new_privileges": true,
+    "pids": 128,
+    "read_only": true,
+    "timeout_seconds": 60,
+    "tmpfs": [
+      "/tmp:rw,noexec,nosuid,size=256m",
+      "/run:rw,noexec,nosuid,size=64m"
+    ]
+  },
+  "observed_at": "2026-08-27T18:16:24.565600+00:00",
+  "plan": {
+    "claim": "Python tomllib parses a fixed TOML integer without another package.",
+    "experiment": "python lesson.py",
+    "license": "PSF-2.0",
+    "source_commit": "python-3.11",
+    "success_condition": "The parsed workers value is the integer four.",
+    "track": "reproduction"
+  },
+  "plan_digest": "24b2023711ab2b829ddf52afcd8c761694587b49deb0eaa3fa01cd5b4a10edfe",
+  "run_id": "86724e05fc2848928bbdfdffcb1cd4db",
+  "source_identity": "official:00f2bfaffea9c71bba8c8f87cf2dcf8d3fa509f09678acd9984edbeb61105bf1",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "d12481d5f4744236a3141e66d5ef7337e262e18d3a9546368f0bcfb27cf570f8"
+}
