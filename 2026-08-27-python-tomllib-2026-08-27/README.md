@@ -2,7 +2,7 @@
 
 Python tomllib parses a fixed TOML integer without another package.
 
-Source: [tomllib — Parse TOML files &#8212; Python 3.14.7 documentation](https://docs.python.org/3/library/tomllib.html)
+Source: [Python tomllib documentation](https://docs.python.org/3/library/tomllib.html)
 
 Implementation focus: a verified public result.
 

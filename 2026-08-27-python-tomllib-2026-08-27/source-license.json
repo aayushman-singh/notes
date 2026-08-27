@@ -1,15 +1,15 @@
 {
   "decision": "approved",
   "evidence": {
-    "approval_request_id": "ea3928fa894556f32c110d5c8a8a4aec251082592d57c0535e9b46271b42ee1d",
+    "approval_request_id": "ea3928fa894556f32c110d5c8a8a4aec251082592d57c0535e9b46271b42ee1",
     "approval_version": 1,
     "source_url": "https://docs.python.org/3/library/tomllib.html"
   },
   "license": "PSF-2.0",
   "source": {
     "identity": "official:00f2bfaffea9c71bba8c8f87cf2dcf8d3fa509f09678acd9984edbeb61105bf1",
-    "summary": "Python Software Foundation official product_document.",
-    "title": "tomllib \u2014 Parse TOML files &#8212; Python 3.14.7 documentation",
+    "summary": "Official Python documentation for tomllib.",
+    "title": "Python tomllib documentation",
     "url": "https://docs.python.org/3/library/tomllib.html"
   },
   "source_commit": "python-3.11"

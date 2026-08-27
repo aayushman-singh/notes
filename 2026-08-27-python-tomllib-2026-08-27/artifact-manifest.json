@@ -20,27 +20,29 @@
   },
   "file_hashes": {
     ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
-    "README.md": "631359a658e99923cc5b63aeb343456f9bd31d387e68783474ca6a58ec219bc9",
+    "README.md": "6c785f86da87e16ff66cc35fa91a65f46636d10994d6aaada05ba1920ed01379",
     "captured-output.txt": "f31f16d60bed6cf75bc00d45f6a8875c35aa42f3b89262e2e2fdb748cb65b844",
     "implementation.py": "c070c627db2201b46ecd2effe34754f76cdf8656adb70f678f30d57ddb72c697",
-    "result-metadata.json": "94aed8aeaa7504af6a61cbf7f07abaedb7b4bb1e76646dcd4028905e3f7596a0",
-    "result.json": "ca7bb3bfd12662182cde652d3161c093868f9b9fc2fb308fcb617db3f4ca043c",
-    "source-license.json": "28bdae4b1ad854abc8be600113fc22e0934394109c6a7ba48fccf38273d103e9",
+    "lesson.py": "0f2f12570951cc6204c46250e0d0f4b4d3e581d02dac688f361ea14a0b5937af",
+    "result-metadata.json": "c97eee3938483e074784473cef7fc9084431c867e62f5541965e46ebfdfcbe7e",
+    "result.json": "d5a6ed95a0bb529b32895281b2a6d7b3985c9f72fb26edf971bcb01fc48f6869",
+    "source-license.json": "4b827d0dbf41a57eaeecf2917ad98ad549362b85833fa0d0b6aa197bdb2f7b59",
     "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "stdout.txt": "d12481d5f4744236a3141e66d5ef7337e262e18d3a9546368f0bcfb27cf570f8",
-    "verify.sh": "5ccc9e6ad20bbcae8d12c4fdc68be8c24fb155dee542b7dc4a553dc0c092bb9e"
+    "verify.sh": "513e7003232dfb610d8f67d040e5a8818e867ea223029ae967fb1d0122575d34"
   },
   "files": [
+    "lesson.py",
     "implementation.py",
     "stdout.txt",
     "stderr.txt",
     "result-metadata.json",
     ".gitattributes"
   ],
-  "fingerprint": "970fa852115d10368b2efdc9a3afc4f3a6baf907366bada642a4094d0c18dcf1",
+  "fingerprint": "794d3870e8a166bb3ab23f28c7a6412eca83aeb2cd63d4fe156ef6119964ddb6",
   "license_decision": "approved",
   "license_evidence": {
-    "approval_request_id": "ea3928fa894556f32c110d5c8a8a4aec251082592d57c0535e9b46271b42ee1d",
+    "approval_request_id": "ea3928fa894556f32c110d5c8a8a4aec251082592d57c0535e9b46271b42ee1",
     "approval_version": 1,
     "source_url": "https://docs.python.org/3/library/tomllib.html"
   },
@@ -55,8 +57,8 @@
   "record_id": "python-tomllib-2026-08-27",
   "source": {
     "identity": "official:00f2bfaffea9c71bba8c8f87cf2dcf8d3fa509f09678acd9984edbeb61105bf1",
-    "summary": "Python Software Foundation official product_document.",
-    "title": "tomllib \u2014 Parse TOML files &#8212; Python 3.14.7 documentation",
+    "summary": "Official Python documentation for tomllib.",
+    "title": "Python tomllib documentation",
     "url": "https://docs.python.org/3/library/tomllib.html"
   },
   "workday": "2026-08-27"
