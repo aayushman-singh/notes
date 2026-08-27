@@ -19,11 +19,12 @@
     "summary": "Parsed workers=4."
   },
   "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
     "README.md": "631359a658e99923cc5b63aeb343456f9bd31d387e68783474ca6a58ec219bc9",
     "captured-output.txt": "f31f16d60bed6cf75bc00d45f6a8875c35aa42f3b89262e2e2fdb748cb65b844",
     "implementation.py": "c070c627db2201b46ecd2effe34754f76cdf8656adb70f678f30d57ddb72c697",
-    "result-metadata.json": "1f1c496ddb4749d31f854cb6a86af9f7f0688fc27d944ed264fcfc9ebb5a820b",
-    "result.json": "b6a3498bcae04ec4fe733864c31a4a22437bf99c3d245608a4bb645719a3a7a3",
+    "result-metadata.json": "94aed8aeaa7504af6a61cbf7f07abaedb7b4bb1e76646dcd4028905e3f7596a0",
+    "result.json": "ca7bb3bfd12662182cde652d3161c093868f9b9fc2fb308fcb617db3f4ca043c",
     "source-license.json": "28bdae4b1ad854abc8be600113fc22e0934394109c6a7ba48fccf38273d103e9",
     "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "stdout.txt": "d12481d5f4744236a3141e66d5ef7337e262e18d3a9546368f0bcfb27cf570f8",
@@ -33,9 +34,10 @@
     "implementation.py",
     "stdout.txt",
     "stderr.txt",
-    "result-metadata.json"
+    "result-metadata.json",
+    ".gitattributes"
   ],
-  "fingerprint": "460f6950e8444b78806614129ef2a45d4e898fd56ec850a6533f036989f2dabf",
+  "fingerprint": "970fa852115d10368b2efdc9a3afc4f3a6baf907366bada642a4094d0c18dcf1",
   "license_decision": "approved",
   "license_evidence": {
     "approval_request_id": "ea3928fa894556f32c110d5c8a8a4aec251082592d57c0535e9b46271b42ee1d",
