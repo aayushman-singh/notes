@@ -1,0 +1,73 @@
+{
+  "command": "python source_experiment.py",
+  "exit_code": 0,
+  "limits": {
+    "base_image_digest": "sha256:1042b61448fef4ba92d16a8c7eb4996d027568ce64792a7877fd88511e0af7c6",
+    "capabilities": "drop-all",
+    "cpus": 1.0,
+    "max_input_bytes": 8388608,
+    "max_input_files": 32,
+    "max_output_bytes": 16777216,
+    "max_output_files": 64,
+    "max_stderr_bytes": 1048576,
+    "max_stdout_bytes": 1048576,
+    "memory": "1g",
+    "network": "none",
+    "no_new_privileges": true,
+    "pids": 128,
+    "read_only": true,
+    "timeout_seconds": 300,
+    "tmpfs": [
+      "/tmp:rw,noexec,nosuid,size=256m",
+      "/run:rw,noexec,nosuid,size=64m"
+    ]
+  },
+  "metadata": {
+    "approval_request_id": "5797cdd9454c59ffc4e4a6615545be2f921495db5000c6edec41f06961fae3e3",
+    "approval_version": 1,
+    "base_image_digest": "sha256:1042b61448fef4ba92d16a8c7eb4996d027568ce64792a7877fd88511e0af7c6",
+    "command": "python source_experiment.py",
+    "elapsed_seconds": 0.8929068366996944,
+    "exit_code": 0,
+    "image_digest": "sha256:7d4c1f19a31a0bbef83e526ccc0da03d9fdd35ad67fcb606c37d319e0f7b0b0c",
+    "input_sha256": {
+      "source_experiment.py": "7ee116a0b085dbde8e444355f8c0be48c41314ee6671fdb8a99a33b234fe76d6"
+    },
+    "limits": {
+      "base_image_digest": "sha256:1042b61448fef4ba92d16a8c7eb4996d027568ce64792a7877fd88511e0af7c6",
+      "capabilities": "drop-all",
+      "cpus": 1.0,
+      "max_input_bytes": 8388608,
+      "max_input_files": 32,
+      "max_output_bytes": 16777216,
+      "max_output_files": 64,
+      "max_stderr_bytes": 1048576,
+      "max_stdout_bytes": 1048576,
+      "memory": "1g",
+      "network": "none",
+      "no_new_privileges": true,
+      "pids": 128,
+      "read_only": true,
+      "timeout_seconds": 300,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=256m",
+        "/run:rw,noexec,nosuid,size=64m"
+      ]
+    },
+    "observed_at": "2026-09-05T19:26:48.854873+00:00",
+    "plan": {
+      "claim": "We reproduce Fermat's Last Theorem formalization in Lean 4 from the Anthropic repository.",
+      "experiment": "python source_experiment.py",
+      "license": "Apache-2.0",
+      "source_commit": "main",
+      "success_condition": "Lean 4 compiles the theorem files and prints a verification success message.",
+      "track": "reproduction"
+    },
+    "plan_digest": "3d922c202d2ff9b0dfd9523879de7bad0331b10bac17328d334091fd949e7600",
+    "run_id": "933d3c7fef9e4b08a593cb0a8056138a",
+    "source_identity": "hackernews:49568697",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout_sha256": "7af672c09fc25ae3de2552ae629ec79e82795a645da03653c0301e46ea6f446e"
+  },
+  "summary": "title_terms=4 summary_terms=4 overlap=4"
+}
