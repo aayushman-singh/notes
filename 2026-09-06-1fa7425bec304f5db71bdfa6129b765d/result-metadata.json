@@ -1,0 +1,47 @@
+{
+  "approval_request_id": "9556a52339fd82b8dc7e577550e93467588b27f1a1c5702e897eefa9914192bd",
+  "approval_version": 1,
+  "base_image_digest": "sha256:1042b61448fef4ba92d16a8c7eb4996d027568ce64792a7877fd88511e0af7c6",
+  "command": "python source_experiment.py",
+  "elapsed_seconds": 1.0747833270579576,
+  "exit_code": 0,
+  "image_digest": "sha256:ad0a5e536e8547d409d780e88323a6596642456c86997f4318ba79db13612ae0",
+  "input_sha256": {
+    "source_experiment.py": "d754881b71097730b17bfdab320f58de9b96b5f389759555755dd592d75d21a7"
+  },
+  "limits": {
+    "base_image_digest": "sha256:1042b61448fef4ba92d16a8c7eb4996d027568ce64792a7877fd88511e0af7c6",
+    "capabilities": "drop-all",
+    "cpus": 1.0,
+    "max_input_bytes": 8388608,
+    "max_input_files": 32,
+    "max_output_bytes": 16777216,
+    "max_output_files": 64,
+    "max_stderr_bytes": 1048576,
+    "max_stdout_bytes": 1048576,
+    "memory": "1g",
+    "network": "none",
+    "no_new_privileges": true,
+    "pids": 128,
+    "read_only": true,
+    "timeout_seconds": 300,
+    "tmpfs": [
+      "/tmp:rw,noexec,nosuid,size=256m",
+      "/run:rw,noexec,nosuid,size=64m"
+    ]
+  },
+  "observed_at": "2026-09-05T20:41:49.428837+00:00",
+  "plan": {
+    "claim": "A Gemma 3 1B model running locally on Android can handle 60-70% of agent requests with zero network access.",
+    "experiment": "python source_experiment.py",
+    "license": "unknown",
+    "source_commit": "1w84pxy",
+    "success_condition": "Reproduce the agent with 30 tools and measure the request-handling rate in airplane mode.",
+    "track": "reproduction"
+  },
+  "plan_digest": "e57c84b70f9008792ae075207b744655498ebea0a4aed81f4c6793f60368dfd5",
+  "run_id": "bd4dc2e5b15b42d6908bf76e2e34703e",
+  "source_identity": "reddit:t3_1w84pxy",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "6684ba9c97d11e603db8efece33cdc762aba423f818fd13ec4399357fcbf8cf6"
+}
