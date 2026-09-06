@@ -1,4 +1,0 @@
-[stdout]
-title_terms=11 summary_terms=31 overlap=11
-
-[stderr]
