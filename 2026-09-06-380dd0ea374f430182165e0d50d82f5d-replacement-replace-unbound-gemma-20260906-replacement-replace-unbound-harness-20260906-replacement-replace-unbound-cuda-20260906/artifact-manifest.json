@@ -1,0 +1,78 @@
+{
+  "experiment": {
+    "command": "python source_experiment.py",
+    "exit_code": 0,
+    "limits": {
+      "base_image_digest": "sha256:1042b61448fef4ba92d16a8c7eb4996d027568ce64792a7877fd88511e0af7c6",
+      "capabilities": "drop-all",
+      "cpus": 1.0,
+      "max_input_bytes": 8388608,
+      "max_input_files": 32,
+      "max_output_bytes": 16777216,
+      "max_output_files": 64,
+      "max_stderr_bytes": 1048576,
+      "max_stdout_bytes": 1048576,
+      "memory": "1g",
+      "network": "none",
+      "no_new_privileges": true,
+      "pids": 128,
+      "read_only": true,
+      "timeout_seconds": 300,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=256m",
+        "/run:rw,noexec,nosuid,size=64m"
+      ]
+    },
+    "summary": "{\"observed\":91}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "a84926e14a35caf9e7bcbaec7caf40f9b9569f39972acf4b8de914fb83655f15",
+    "captured-output.txt": "1a847d206976668cfbf9ccde2b4ae2b4260bbe6def780ad7ce4a99cff4f0e9b3",
+    "result-metadata.json": "5d16cf40a98cee28565d7206c84096f875e05b6868d91c18f16a40da0c8f1d32",
+    "result.json": "3219d9cb6350427ef21a75debc7caa1b799bdfda9a2defb787865278a15ec25b",
+    "source-license.json": "654b3a9641a4d77248f948c2be6a1bb68d34abc87249cf32ed13580070e2672b",
+    "source_check.py": "21d8c59365a3aa04aed22bec019a3221cba23cc30ecb65346d3629617fce1805",
+    "source_experiment.py": "c65174417899b76b0edf1d1ec57f51a1c1dd83ea3dd144514293ef1af08eb2c8",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "c9e5747334c4b5a2eeba4901ed832d2dfcd341792526ed7356964bedcc70f155",
+    "verify.sh": "48d4bf798c788ebe1ff72135af55cabffe5c198abcef2dd5e90803dd2b0400e3"
+  },
+  "files": [
+    "source_check.py",
+    "source_experiment.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "4d9de5ed2e33cc14c32ff32bcb634cd14697a6d311f3682fe7f85c8e200645e4",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.reddit.com/r/LocalLLM/comments/1w7umnd/one_epoch_of_domain_finetuning_took/"
+  },
+  "plan": {
+    "claim": "Domain fine-tuning on MQL5 can raise a small code model's compile success from near zero to over 90%.",
+    "evidence_case": {
+      "expected": 91,
+      "inputs": {
+        "after": 92,
+        "before": 1
+      },
+      "operation": "numeric_delta"
+    },
+    "experiment": "python source_experiment.py",
+    "license": "Public discussion; no source code copied.",
+    "source_commit": "reddit:t3_1w7umnd",
+    "success_condition": "Reproduce the reported compile-success jump using the provided before and after accuracy values.",
+    "track": "reproduction"
+  },
+  "record_id": "380dd0ea374f430182165e0d50d82f5d-replacement-replace-unbound-gemma-20260906-replacement-replace-unbound-harness-20260906-replacement-replace-unbound-cuda-20260906",
+  "source": {
+    "identity": "reddit:t3_1w7umnd",
+    "summary": "r/LocalLLM: One epoch of domain fine-tuning took Qwen2.5-Coder-14B from 1% to 92% compile success on MQL5. gpt-5.6-sol got 97% on the same items. Benchmark is public.\nI build MQL5 training data (the MetaTrader 5 trading language \u2014niche, thin public corpus, easy to get subtly wrong). For the last 11 months I've been generating specs with my own generators and machine-verifying every completion through the",
+    "title": "r/LocalLLM: One epoch of domain fine-tuning took Qwen2.5-Coder-14B from 1% to 92% compile success on MQL5. gpt-5.6-sol got 97% on the same items. Benchmark is public.",
+    "url": "https://www.reddit.com/r/LocalLLM/comments/1w7umnd/one_epoch_of_domain_finetuning_took/"
+  },
+  "workday": "2026-09-06"
+}

@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://www.reddit.com/r/LocalLLM/comments/1w7umnd/one_epoch_of_domain_finetuning_took/"
+  },
+  "license": "Public discussion; no source code copied.",
+  "source": {
+    "identity": "reddit:t3_1w7umnd",
+    "summary": "r/LocalLLM: One epoch of domain fine-tuning took Qwen2.5-Coder-14B from 1% to 92% compile success on MQL5. gpt-5.6-sol got 97% on the same items. Benchmark is public.\nI build MQL5 training data (the MetaTrader 5 trading language \u2014niche, thin public corpus, easy to get subtly wrong). For the last 11 months I've been generating specs with my own generators and machine-verifying every completion through the",
+    "title": "r/LocalLLM: One epoch of domain fine-tuning took Qwen2.5-Coder-14B from 1% to 92% compile success on MQL5. gpt-5.6-sol got 97% on the same items. Benchmark is public.",
+    "url": "https://www.reddit.com/r/LocalLLM/comments/1w7umnd/one_epoch_of_domain_finetuning_took/"
+  },
+  "source_commit": "reddit:t3_1w7umnd"
+}
