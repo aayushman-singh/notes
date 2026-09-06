@@ -1,0 +1,58 @@
+{
+  "experiment": {
+    "command": "python source_experiment.py",
+    "exit_code": 0,
+    "summary": "{\"observed\":59.5}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "e3e8173ad4e1049630514c61264a04fddfd35e1d9509ff781867aba27e26f063",
+    "captured-output.txt": "555e6109da9b41cd1f54d1bff9ce9dc9b493ccd56cf1e51a874598fde614a9d4",
+    "result-metadata.json": "c84b740c174658bbf406329ee20fc06870ee825f27187adc1f9efe3470e85b3a",
+    "result.json": "4da6ee5bfdd793e02ee33c719a43a926321ae2e9cdf29ce6d8772c714925b4c1",
+    "source-license.json": "c749d565800d6c5b33ba521f709df63a95c456ad880cc4b817a7d13318d2609a",
+    "source_check.py": "c7079f00720afb6ce18ccb7828dfd9ea799d32775dbaf2d779f512bcce84ebb1",
+    "source_experiment.py": "2031dda42a444689b2365dc4f39f9814934c5d3fc42d249bfd83018a15d92754",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "0271c07876845e48bba9c4ab821fb5767925735d775e069de0e5be30eeb09e65",
+    "verify.sh": "48d4bf798c788ebe1ff72135af55cabffe5c198abcef2dd5e90803dd2b0400e3"
+  },
+  "files": [
+    "source_check.py",
+    "source_experiment.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "b52389335393ebcdd9e877b1529c360cbe95eff7b948c62aa18e15f26153ea26",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.reddit.com/r/ethdev/comments/1w89gac/usdc_has_a_different_upgrade_key_on_every_chain/"
+  },
+  "plan": {
+    "claim": "The source reports that 390 of 656 upgradeable stablecoin deployments have mismatched control paths across chains.",
+    "evidence_case": {
+      "expected": 59.5,
+      "inputs": {
+        "part": 390,
+        "precision": 1,
+        "whole": 656
+      },
+      "operation": "percentage"
+    },
+    "experiment": "python source_experiment.py",
+    "license": "Reddit content, used as source facts only; no code copied.",
+    "source_commit": "reddit:t3_1w89gac",
+    "success_condition": "Calculate the percentage of mismatched contracts out of the total enumerated deployments.",
+    "track": "reproduction"
+  },
+  "record_id": "result-b9e2972db64a",
+  "source": {
+    "identity": "reddit:t3_1w89gac",
+    "summary": "r/ethdev: USDC has a different upgrade key on every chain. Is that deliberate?\nI pulled the proxy admin and owner for every upgradeable stablecoin deployment I could enumerate across chains, 656 contracts, and compared the control path for the same token on different networks. 390 of them do not match.\n\nConcretely: th",
+    "title": "r/ethdev: USDC has a different upgrade key on every chain. Is that deliberate?",
+    "url": "https://www.reddit.com/r/ethdev/comments/1w89gac/usdc_has_a_different_upgrade_key_on_every_chain/"
+  },
+  "workday": "2026-09-06"
+}

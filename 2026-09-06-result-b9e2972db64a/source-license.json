@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://www.reddit.com/r/ethdev/comments/1w89gac/usdc_has_a_different_upgrade_key_on_every_chain/"
+  },
+  "license": "Reddit content, used as source facts only; no code copied.",
+  "source": {
+    "identity": "reddit:t3_1w89gac",
+    "summary": "r/ethdev: USDC has a different upgrade key on every chain. Is that deliberate?\nI pulled the proxy admin and owner for every upgradeable stablecoin deployment I could enumerate across chains, 656 contracts, and compared the control path for the same token on different networks. 390 of them do not match.\n\nConcretely: th",
+    "title": "r/ethdev: USDC has a different upgrade key on every chain. Is that deliberate?",
+    "url": "https://www.reddit.com/r/ethdev/comments/1w89gac/usdc_has_a_different_upgrade_key_on_every_chain/"
+  },
+  "source_commit": "reddit:t3_1w89gac"
+}
