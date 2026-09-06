@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://www.reddit.com/r/LocalLLM/comments/1w84pxy/running_gemma_3_1b_on_an_android_phone_as_the/"
+  },
+  "license": "Reddit post content, no source code copied",
+  "source": {
+    "identity": "reddit:t3_1w84pxy",
+    "summary": "r/LocalLLM: Running Gemma 3 1B on an Android phone as the brain of an autonomous agent \u2014 it handles ~60-70% of requests\n  with zero network\nI built an Android agent that uses a Gemma 3 1B model running locally on the phone as its primary brain. No API calls\n\n  for simple tasks \u2014 it works in airplane mode.\n\n\n\n  The agent has 30 tools (flashlight, clipboard, SMS, app launch, web",
+    "title": "r/LocalLLM: Running Gemma 3 1B on an Android phone as the brain of an autonomous agent \u2014 it handles ~60-70% of requests",
+    "url": "https://www.reddit.com/r/LocalLLM/comments/1w84pxy/running_gemma_3_1b_on_an_android_phone_as_the/"
+  },
+  "source_commit": "reddit:t3_1w84pxy"
+}

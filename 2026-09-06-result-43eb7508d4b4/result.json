@@ -1,0 +1,31 @@
+{
+  "command": "python source_experiment.py",
+  "exit_code": 0,
+  "metadata": {
+    "command": "python source_experiment.py",
+    "exit_code": 0,
+    "limits": {
+      "base_image_digest": "sha256:1042b61448fef4ba92d16a8c7eb4996d027568ce64792a7877fd88511e0af7c6",
+      "capabilities": "drop-all",
+      "cpus": 1.0,
+      "max_input_bytes": 8388608,
+      "max_input_files": 32,
+      "max_output_bytes": 16777216,
+      "max_output_files": 64,
+      "max_stderr_bytes": 1048576,
+      "max_stdout_bytes": 1048576,
+      "memory": "1g",
+      "network": "none",
+      "no_new_privileges": true,
+      "pids": 128,
+      "read_only": true,
+      "timeout_seconds": 300,
+      "tmpfs": [
+        "/tmp:rw,noexec,nosuid,size=256m",
+        "/run:rw,noexec,nosuid,size=64m"
+      ]
+    },
+    "observed_at": "2026-09-06T10:24:35.973368+00:00"
+  },
+  "summary": "{\"observed\":65.0}"
+}

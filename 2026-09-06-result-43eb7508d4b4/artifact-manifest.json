@@ -1,0 +1,58 @@
+{
+  "experiment": {
+    "command": "python source_experiment.py",
+    "exit_code": 0,
+    "summary": "{\"observed\":65.0}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "aba3ce31185b8cdfc1c2d7fe859cd5a154b653fb2fac5f885ff033eb3cf5478b",
+    "captured-output.txt": "7d675e9bef15814c94787cbb072a0de1657b26fd723215b55f399f4f29f1611f",
+    "result-metadata.json": "68b3a05dd671647655715deb737da496af1dfffdf94be7627083fd11e55e0f6c",
+    "result.json": "8e59cad755e559e6b6378ebb99eb0e825c6a69706a0366f007d1598ad56b5335",
+    "source-license.json": "444dda9fa4d820f2794b66b448b8a1e1082d44aa188271c5421669fa291ecf1b",
+    "source_check.py": "c7079f00720afb6ce18ccb7828dfd9ea799d32775dbaf2d779f512bcce84ebb1",
+    "source_experiment.py": "aef5056d656288d7c4c09e648c3ef8603c2ae449ce8ee44af021d36f552fc8eb",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "760d1a474eaec19253c12c5713c2d6c796957fb65fb2cec25167d639f1fa1dfc",
+    "verify.sh": "48d4bf798c788ebe1ff72135af55cabffe5c198abcef2dd5e90803dd2b0400e3"
+  },
+  "files": [
+    "source_check.py",
+    "source_experiment.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "f6ee12c44e12ace50a07659ae07d03dacdce1d55b688325ee3ebbf4b73ac58fb",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.reddit.com/r/LocalLLM/comments/1w84pxy/running_gemma_3_1b_on_an_android_phone_as_the/"
+  },
+  "plan": {
+    "claim": "The source reports a local Gemma 3 1B Android agent handles 60-70% of requests with zero network.",
+    "evidence_case": {
+      "expected": 65.0,
+      "inputs": {
+        "part": 65,
+        "precision": 0,
+        "whole": 100
+      },
+      "operation": "percentage"
+    },
+    "experiment": "python source_experiment.py",
+    "license": "Reddit post content, no source code copied",
+    "source_commit": "reddit:t3_1w84pxy",
+    "success_condition": "Calculate the midpoint of the reported 60-70% range and confirm it equals 65%.",
+    "track": "reproduction"
+  },
+  "record_id": "result-43eb7508d4b4",
+  "source": {
+    "identity": "reddit:t3_1w84pxy",
+    "summary": "r/LocalLLM: Running Gemma 3 1B on an Android phone as the brain of an autonomous agent \u2014 it handles ~60-70% of requests\n  with zero network\nI built an Android agent that uses a Gemma 3 1B model running locally on the phone as its primary brain. No API calls\n\n  for simple tasks \u2014 it works in airplane mode.\n\n\n\n  The agent has 30 tools (flashlight, clipboard, SMS, app launch, web",
+    "title": "r/LocalLLM: Running Gemma 3 1B on an Android phone as the brain of an autonomous agent \u2014 it handles ~60-70% of requests",
+    "url": "https://www.reddit.com/r/LocalLLM/comments/1w84pxy/running_gemma_3_1b_on_an_android_phone_as_the/"
+  },
+  "workday": "2026-09-06"
+}
