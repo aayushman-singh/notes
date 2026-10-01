@@ -1,0 +1,55 @@
+{
+  "experiment": {
+    "command": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6NTYuOSwiaW5wdXRzIjp7ImFmdGVyIjo2Mi45LCJiZWZvcmUiOjYuMH0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6NTYuOSwiaW5wdXRzIjp7ImFmdGVyIjo2Mi45LCJiZWZvcmUiOjYuMH0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "exit_code": 0,
+    "summary": "{\"observed\":56.9}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "221e72a7356f7ff53df00331a7ad25366bc4c3329c3a20efbfc1551176594899",
+    "captured-output.txt": "90a5d8c49e934891d9e240eaa9fc389cb54f0b08fa3c5cb9428ce48a6492cdc3",
+    "result-metadata.json": "9e253d5383f4f03d7cd7e81895950b8e374e151f1abf3468c67364af75c0524b",
+    "result.json": "13a71a4b71781f6977145079f6f9a55b599f823d7734d5e59f8f047572f523e5",
+    "source-license.json": "2e9f24a82edb6f8a51123ab68fa54d5c70ebd3dab178ba42dbf615e8e8663d6c",
+    "source_check.py": "ea6ed294197e2ff3adf1b9a324fee10e87867d7d7225b98a6702a076aad4fd23",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "5a9affe5bf2d135cf1aa091486d049a665904dab2e80c855cee594630de90508",
+    "verify.sh": "f830eb86d16cb96f67ae3ace4826fb0d655240316d2bd3149ade545c917080ec"
+  },
+  "files": [
+    "source_check.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "573cc486310a9120a56f853ebbc21c010e85cd7487e859381b8737cb20eeaea3",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.reddit.com/r/LocalLLaMA/comments/1wujph3/two_openweights_releases_victoria_qwen38flashnext/"
+  },
+  "plan": {
+    "claim": "The source reports Maple raised official Canadian source citation from 6.0% to 62.9% on 600 held-out questions with search.",
+    "evidence_case": {
+      "expected": 56.9,
+      "inputs": {
+        "after": 62.9,
+        "before": 6.0
+      },
+      "operation": "numeric_delta"
+    },
+    "experiment": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6NTYuOSwiaW5wdXRzIjp7ImFmdGVyIjo2Mi45LCJiZWZvcmUiOjYuMH0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6NTYuOSwiaW5wdXRzIjp7ImFmdGVyIjo2Mi45LCJiZWZvcmUiOjYuMH0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "license": "Source facts only.",
+    "source_commit": "sha256:ed3f5df26ffec56134a8b7e803c1cf22b0b78155997f83314d4978299cdc4e0c",
+    "success_condition": "Calculate the change in percentage points.",
+    "track": "reproduction"
+  },
+  "record_id": "result-943526f27684",
+  "source": {
+    "identity": "reddit:t3_1wujph3",
+    "summary": "r/LocalLLaMA: Two open-weights releases: Victoria (Qwen3.8-Flash-Next with 44% of experts cut, 70% Terminal-Bench 2.1, GGUF included) and Maple (a Canada-first fine-tune)\nWe had a Dell B300 in the lab for a few weeks and used it to create two fine tunes of Qwen Flash Next.\n\n**Victoria** (coding and agents)\n\n- Qwen3.8-Flash-Next cut down by 44% using a paper / technique called REAP: 512 down to 288 per layer.\n- Retrained at 4-bit (NVFP4) afterwards, so it's trained for the format it ships in rather than just quantized after the fact.\n- Terminal-Bench 2.1: 70.0%, averaged over 3 runs with an 8h per-task timeout. Our previous NVFP4 build scored 62.5%.\n- HumanEval: 159/164.\n- 48.0 GiB of weights, including the draft head. The 95.4 GiB n-gram table is separate and not counted in that number.\n- 280 tok/s single stream on one B300 with the draft head, versus 135 without it.\n- GGUF Q4_K_M is 49.17 GiB. It scored 75.3% on Terminal-Bench (a single run, so treat it as noisy) and 93.2% on HumanEval (averaged over 5 runs).\n- Uses 35% fewer output tokens than our previous build.\n\n**Maple** (Canadian questions)\n\nMost models answer questions about taxes, benefits and regulations as if you live in the US. Maple is fine-tuned to default to Canada. On 600 held-out questions, with search:\n\n- Cites an official Canadian source: 6.0% before fine-tuning, 62.9% after.\n- Fully correct answers: 6.6% before, 21.8% after.\n- \"No answer\" responses: 47.2% before, 23.7% after.\n- It pushes Canada onto people who said they live somewhere else less often: 2.9% before, 1.0% after.\n\nCoding holds up: 157/164 on HumanEval. Grading was done by an AI judge panel; human review hasn't happened yet.\n\nLinks:\nhttps://huggingface.co/rmonsurate/Victoria\nhttps://huggingface.co/rmonsurate/Maple\n\nHappy to answer questions about running them.\n\nEdit: llama.cpp users. The GGUF carries our draft head, and mainline llama.cpp doesn't know about it yet, so it fails with \"expected 1256, got 1224\". Your download is fine. For now, build from our fork: github.com/rmonsurate/llama.cpp, branch qwen4exp-mtp. Prebuilt binaries are on the way. Thanks to the reader who caught this.",
+    "title": "r/LocalLLaMA: Two open-weights releases: Victoria (Qwen3.8-Flash-Next with 44% of experts cut, 70% Terminal-Bench 2.1, GGUF included) and Maple (a Canada-first fine-tune)",
+    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wujph3/two_openweights_releases_victoria_qwen38flashnext/"
+  },
+  "workday": "2026-10-02"
+}
