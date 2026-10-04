@@ -1,0 +1,61 @@
+{
+  "experiment": {
+    "command": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MiwiaW5wdXRzIjp7ImRvY3VtZW50Ijp7ImNvdW50ZXJzIjoyLCJkZW1vIjoiRmlib25hY2NpIiwiaG9zdCI6Ii91c3IvYmluL3RvcCJ9LCJwYXRoIjpbImNvdW50ZXJzIl19LCJvcGVyYXRpb24iOiJqc29uX3ZhbHVlIn0='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MiwiaW5wdXRzIjp7ImRvY3VtZW50Ijp7ImNvdW50ZXJzIjoyLCJkZW1vIjoiRmlib25hY2NpIiwiaG9zdCI6Ii91c3IvYmluL3RvcCJ9LCJwYXRoIjpbImNvdW50ZXJzIl19LCJvcGVyYXRpb24iOiJqc29uX3ZhbHVlIn0='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "exit_code": 0,
+    "summary": "{\"observed\":2}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "1fd47d0a82180456830168b4eef33ea0f30c2e9a2f6151ee891a20075dac318a",
+    "captured-output.txt": "2524092ac4b0d8303e6244431225dc9433cf4f63ac2d00d10e4c0e99ab6e4811",
+    "result-metadata.json": "ecffa50b1b68b501ad8f57f183a7236f9053bf224a2af6b6988a1884ffd241c4",
+    "result.json": "c26c604ea40012edd4db07a3637d3170de3fce3816deb90faa83da23f38ebb86",
+    "source-license.json": "53ebce1678760259287d19ceb1158ff15d3191dfa4cfb2e3122a3b5d912dc1a3",
+    "source_check.py": "719f3efafbc0f073b409951ebe3acea62d2d7dccc35f0ee3582d8c0e74e1c02b",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "bb75bc6332ac360e8b41ea6091ecda6d94763877be20561bd7c7ac0a47b403b2",
+    "verify.sh": "f830eb86d16cb96f67ae3ace4826fb0d655240316d2bd3149ade545c917080ec"
+  },
+  "files": [
+    "source_check.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "cdf233fbb8ac9fabf962c8f5b91a214b2b7a5c3e8aa8ef3c1d8c8fe7c150b157",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.reddit.com/r/programming/comments/1wvy0zi/a_minsky_machine_in_ncurses_terminfo/"
+  },
+  "plan": {
+    "claim": "The source reports that ncurses terminfo can simulate a two-counter Minsky machine via repeated parameter expansion.",
+    "evidence_case": {
+      "expected": 2,
+      "inputs": {
+        "document": {
+          "counters": 2,
+          "demo": "Fibonacci",
+          "host": "/usr/bin/top"
+        },
+        "path": [
+          "counters"
+        ]
+      },
+      "operation": "json_value"
+    },
+    "experiment": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MiwiaW5wdXRzIjp7ImRvY3VtZW50Ijp7ImNvdW50ZXJzIjoyLCJkZW1vIjoiRmlib25hY2NpIiwiaG9zdCI6Ii91c3IvYmluL3RvcCJ9LCJwYXRoIjpbImNvdW50ZXJzIl19LCJvcGVyYXRpb24iOiJqc29uX3ZhbHVlIn0='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MiwiaW5wdXRzIjp7ImRvY3VtZW50Ijp7ImNvdW50ZXJzIjoyLCJkZW1vIjoiRmlib25hY2NpIiwiaG9zdCI6Ii91c3IvYmluL3RvcCJ9LCJwYXRoIjpbImNvdW50ZXJzIl19LCJvcGVyYXRpb24iOiJqc29uX3ZhbHVlIn0='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "license": "source facts only",
+    "source_commit": "sha256:b2ecafb30e90b118b755e5930f13899a64df1b51426ca4eda6333e80f4bc63ed",
+    "success_condition": "The check returns the reported counter count from the structured source facts.",
+    "track": "integration"
+  },
+  "record_id": "result-5bc1349c15c8",
+  "source": {
+    "identity": "reddit:t3_1wvy0zi",
+    "summary": "r/programming: A Minsky machine in ncurses terminfo\nncurses terminfo can simulate a two-counter Minsky machine, making repeated parameter expansion computationally universal.  \n  \nDemo: a parasitic Fibonacci computation inside /usr/bin/top",
+    "title": "r/programming: A Minsky machine in ncurses terminfo",
+    "url": "https://www.reddit.com/r/programming/comments/1wvy0zi/a_minsky_machine_in_ncurses_terminfo/"
+  },
+  "workday": "2026-10-05"
+}

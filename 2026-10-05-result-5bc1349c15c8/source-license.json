@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://www.reddit.com/r/programming/comments/1wvy0zi/a_minsky_machine_in_ncurses_terminfo/"
+  },
+  "license": "source facts only",
+  "source": {
+    "identity": "reddit:t3_1wvy0zi",
+    "summary": "r/programming: A Minsky machine in ncurses terminfo\nncurses terminfo can simulate a two-counter Minsky machine, making repeated parameter expansion computationally universal.  \n  \nDemo: a parasitic Fibonacci computation inside /usr/bin/top",
+    "title": "r/programming: A Minsky machine in ncurses terminfo",
+    "url": "https://www.reddit.com/r/programming/comments/1wvy0zi/a_minsky_machine_in_ncurses_terminfo/"
+  },
+  "source_commit": "sha256:b2ecafb30e90b118b755e5930f13899a64df1b51426ca4eda6333e80f4bc63ed"
+}
