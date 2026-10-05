@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://www.reddit.com/r/LocalLLaMA/comments/1wxa1wr/bilibili_released_indextranslatea_a_multilingual/"
+  },
+  "license": "source facts only",
+  "source": {
+    "identity": "reddit:t3_1wxa1wr",
+    "summary": "r/LocalLLaMA: bilibili released Index-Translate,a A Multilingual Translation Model Family based on Qwen3.5\nhttps://github.com/bilibili/Index-Translate\n\nIndex-Translate is a family of multilingual translation models built on Qwen3.5. The text models cover 150 languages and follow translation instructions such as terminology, formatting, and content-preservation requirements. The family extends this foundation to speech, syllable-controlled translation, and full-document translation.\n\n-Index-Translate translates text, structured content, and community expressions.\n-Index-Echo produces translated subtitles or speech conditioned on the source speaker's voice.\n-Index-Homura adjusts translations toward a specified target syllable count.\n-Index-NativeLong translates complete documents with context across passages.",
+    "title": "r/LocalLLaMA: bilibili released Index-Translate,a A Multilingual Translation Model Family based on Qwen3.5",
+    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wxa1wr/bilibili_released_indextranslatea_a_multilingual/"
+  },
+  "source_commit": "sha256:2cab3a64b21956aa36a60eb3efd428132392bbda2e9aaf8369e22f46b8436482"
+}

@@ -1,0 +1,55 @@
+{
+  "experiment": {
+    "command": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7InBhdHRlcm4iOiIxNTAgbGFuZ3VhZ2VzIiwidGV4dCI6IkluZGV4LVRyYW5zbGF0ZSBpcyBhIGZhbWlseSBvZiBtdWx0aWxpbmd1YWwgdHJhbnNsYXRpb24gbW9kZWxzIGJ1aWx0IG9uIFF3ZW4zLjUuIFRoZSB0ZXh0IG1vZGVscyBjb3ZlciAxNTAgbGFuZ3VhZ2VzIGFuZCBmb2xsb3cgdHJhbnNsYXRpb24gaW5zdHJ1Y3Rpb25zIHN1Y2ggYXMgdGVybWlub2xvZ3ksIGZvcm1hdHRpbmcsIGFuZCBjb250ZW50LXByZXNlcnZhdGlvbiByZXF1aXJlbWVudHMuIn0sIm9wZXJhdGlvbiI6InJlZ2V4X21hdGNoIn0='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7InBhdHRlcm4iOiIxNTAgbGFuZ3VhZ2VzIiwidGV4dCI6IkluZGV4LVRyYW5zbGF0ZSBpcyBhIGZhbWlseSBvZiBtdWx0aWxpbmd1YWwgdHJhbnNsYXRpb24gbW9kZWxzIGJ1aWx0IG9uIFF3ZW4zLjUuIFRoZSB0ZXh0IG1vZGVscyBjb3ZlciAxNTAgbGFuZ3VhZ2VzIGFuZCBmb2xsb3cgdHJhbnNsYXRpb24gaW5zdHJ1Y3Rpb25zIHN1Y2ggYXMgdGVybWlub2xvZ3ksIGZvcm1hdHRpbmcsIGFuZCBjb250ZW50LXByZXNlcnZhdGlvbiByZXF1aXJlbWVudHMuIn0sIm9wZXJhdGlvbiI6InJlZ2V4X21hdGNoIn0='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "exit_code": 0,
+    "summary": "{\"observed\":true}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "be506d169cbd67b4bac737abb26da38a56d004ef7624d6eaf4f86b6f58d76c10",
+    "captured-output.txt": "77309bf57e0a5372a73c34f03cecd0788d233c986e7eb9df4df5d339282da28e",
+    "result-metadata.json": "1f6a4f24b8c5fa57bd53604c8369d21c057154ca3178996f21350ad566707f6b",
+    "result.json": "79c635bf145b68b809cfc977b1eb571a151227c740c7ac175a197059eb1a0645",
+    "source-license.json": "6c78daa83e3cce72ab2bbceb4a58f5d8b62c9ec6c3ba1b20af3b7131d3eab5b8",
+    "source_check.py": "05dad2f81ca4660c5820f48d6ee5ff79bcefb96399ff723055fa4ffb4072a20c",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "ed485b7f34e13c070257ded1e92e1fff3c7804f657d99093fc4d83b44ff378bf",
+    "verify.sh": "f830eb86d16cb96f67ae3ace4826fb0d655240316d2bd3149ade545c917080ec"
+  },
+  "files": [
+    "source_check.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "a6f81c9b79523e978b23233b5207dcf1375a724926c4755512f0a7693954a970",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.reddit.com/r/LocalLLaMA/comments/1wxa1wr/bilibili_released_indextranslatea_a_multilingual/"
+  },
+  "plan": {
+    "claim": "The source reports Bilibili released Index-Translate, a Qwen3.5-based multilingual translation family covering 150 languages.",
+    "evidence_case": {
+      "expected": true,
+      "inputs": {
+        "pattern": "150 languages",
+        "text": "Index-Translate is a family of multilingual translation models built on Qwen3.5. The text models cover 150 languages and follow translation instructions such as terminology, formatting, and content-preservation requirements."
+      },
+      "operation": "regex_match"
+    },
+    "experiment": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7InBhdHRlcm4iOiIxNTAgbGFuZ3VhZ2VzIiwidGV4dCI6IkluZGV4LVRyYW5zbGF0ZSBpcyBhIGZhbWlseSBvZiBtdWx0aWxpbmd1YWwgdHJhbnNsYXRpb24gbW9kZWxzIGJ1aWx0IG9uIFF3ZW4zLjUuIFRoZSB0ZXh0IG1vZGVscyBjb3ZlciAxNTAgbGFuZ3VhZ2VzIGFuZCBmb2xsb3cgdHJhbnNsYXRpb24gaW5zdHJ1Y3Rpb25zIHN1Y2ggYXMgdGVybWlub2xvZ3ksIGZvcm1hdHRpbmcsIGFuZCBjb250ZW50LXByZXNlcnZhdGlvbiByZXF1aXJlbWVudHMuIn0sIm9wZXJhdGlvbiI6InJlZ2V4X21hdGNoIn0='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7InBhdHRlcm4iOiIxNTAgbGFuZ3VhZ2VzIiwidGV4dCI6IkluZGV4LVRyYW5zbGF0ZSBpcyBhIGZhbWlseSBvZiBtdWx0aWxpbmd1YWwgdHJhbnNsYXRpb24gbW9kZWxzIGJ1aWx0IG9uIFF3ZW4zLjUuIFRoZSB0ZXh0IG1vZGVscyBjb3ZlciAxNTAgbGFuZ3VhZ2VzIGFuZCBmb2xsb3cgdHJhbnNsYXRpb24gaW5zdHJ1Y3Rpb25zIHN1Y2ggYXMgdGVybWlub2xvZ3ksIGZvcm1hdHRpbmcsIGFuZCBjb250ZW50LXByZXNlcnZhdGlvbiByZXF1aXJlbWVudHMuIn0sIm9wZXJhdGlvbiI6InJlZ2V4X21hdGNoIn0='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "license": "source facts only",
+    "source_commit": "sha256:2cab3a64b21956aa36a60eb3efd428132392bbda2e9aaf8369e22f46b8436482",
+    "success_condition": "Confirm the source summary text matches a pattern that requires the phrase 150 languages.",
+    "track": "integration"
+  },
+  "record_id": "result-2cea0eec772e",
+  "source": {
+    "identity": "reddit:t3_1wxa1wr",
+    "summary": "r/LocalLLaMA: bilibili released Index-Translate,a A Multilingual Translation Model Family based on Qwen3.5\nhttps://github.com/bilibili/Index-Translate\n\nIndex-Translate is a family of multilingual translation models built on Qwen3.5. The text models cover 150 languages and follow translation instructions such as terminology, formatting, and content-preservation requirements. The family extends this foundation to speech, syllable-controlled translation, and full-document translation.\n\n-Index-Translate translates text, structured content, and community expressions.\n-Index-Echo produces translated subtitles or speech conditioned on the source speaker's voice.\n-Index-Homura adjusts translations toward a specified target syllable count.\n-Index-NativeLong translates complete documents with context across passages.",
+    "title": "r/LocalLLaMA: bilibili released Index-Translate,a A Multilingual Translation Model Family based on Qwen3.5",
+    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wxa1wr/bilibili_released_indextranslatea_a_multilingual/"
+  },
+  "workday": "2026-10-06"
+}
