@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://www.reddit.com/r/LocalLLaMA/comments/1wz7tvs/i_gave_a_21m_model_a_64bparameter_lookup_table_it/"
+  },
+  "license": "Source facts only.",
+  "source": {
+    "identity": "reddit:t3_1wz7tvs",
+    "summary": "r/LocalLLaMA: I gave a 21M model a 6.4B-parameter lookup table. It matches a 114M dense model and runs with the table on an SSD (RX 9070)\nI spent the last few weeks on a hobby research project and just made it public.\n\n\n\nThe idea isn't new (product-key memory, Lample et al. 2019, and Meta's \"Memory Layers at Scale\"): give a model a huge table of learned vectors and let it read only a few hundred of them per token. I wanted to know what that's actually worth on a small model, what it costs, and whether the table even has to sit in VRAM.\n\n\n\nWhat came out:\n\n\n\n\\- A 21M model with a 16.8M-row table (6.4B parameters in the table, 33M used per token) is about as good as a 114M dense model trained on the same 500M Wikipedia tokens.\n\n\\- The table doesn't need VRAM. With the 4-bit table memory-mapped from an NVMe SSD the model still writes \\~140 tok/s on my RX 9070, using 0.4 GB of VRAM. Reading long prompts from the SSD is slow though, every missed row costs a whole 4 KB page.\n\n\\- I wrote Triton kernels for it. They run unchanged on my Radeon, an MI350X and H100/H200.\n\n\\- Bolting a table onto a finished model (Qwen3.5-0.8B) didn't work: no better than a small dense add-on with the same compute.\n\n\n\nCaveats: it's tiny, one seed for the big runs, and the text it writes is fluent Wikipedia English with made-up facts. I wrote down the success criteria before every run, and the stuff that didn't work is in there too.\n\n\n\nMost of it ran on my gaming PC, the big runs cost about 70 dollars on Runpod. I built it together with Claude Code (you'll see it in the commits), the ideas, decisions and money were mine.\n\n\n\nRepo: [https://github.com/re133/sparse-memory-lm](https://github.com/re133/sparse-memory-lm)\n\nClick a word and see which table entries the model reads: [https://re133.github.io/sparse-memory-lm/explorer/](https://re133.github.io/sparse-memory-lm/explorer/)\n\nModel: [https://huggingface.co/fechyy/sparse-memory-lm-B-16M](https://huggingface.co/fechyy/sparse-memory-lm-B-16M)\n\n\n\nFeedback welcome, especially if I got something wrong. And if anyone has bigger GPUs to spare, I'd love to try this at 1B scale.",
+    "title": "r/LocalLLaMA: I gave a 21M model a 6.4B-parameter lookup table. It matches a 114M dense model and runs with the table on an SSD (RX 9070)",
+    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wz7tvs/i_gave_a_21m_model_a_64bparameter_lookup_table_it/"
+  },
+  "source_commit": "sha256:9376638c715decc9ed59dfe2df8e80a2b8f9c37657feaf0d7000c0fdaab5447d"
+}
