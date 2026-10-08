@@ -1,0 +1,55 @@
+{
+  "experiment": {
+    "command": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MC41OTQ5OTk5OTk5OTk5OTg5LCJpbnB1dHMiOnsiYWZ0ZXIiOjQyLjQ4LCJiZWZvcmUiOjQxLjg4NX0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MC41OTQ5OTk5OTk5OTk5OTg5LCJpbnB1dHMiOnsiYWZ0ZXIiOjQyLjQ4LCJiZWZvcmUiOjQxLjg4NX0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "exit_code": 0,
+    "summary": "{\"observed\":0.5949999999999989}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "37a0e9e2dcedeab36a8d0d72d6a34df5b6d48fc74c2312bf8bb57062a9bc49b6",
+    "captured-output.txt": "f86aac9f904ec9c59ee8cfa79c64eb607de199565a5ac988bd78185f8476efb1",
+    "result-metadata.json": "8d9b289969b9e45406237d02f3a885cf0e344545914d683ac429f6085e162b98",
+    "result.json": "9655262d590892e96ce77b892482a90322dc47d79a3837947d9c960b5740c7b7",
+    "source-license.json": "a7eb8c5114171d9597d507e1e68e192b5c0e82f221139a0c50b210056883b3b2",
+    "source_check.py": "03b8201244e54a7949fe716be715155b76b88d156cebddae7104a8ced5723e04",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "bde3160e158ac55dea0e59c998a50e9d9dab1c2ceeb2b5649265f9e53a92c902",
+    "verify.sh": "f830eb86d16cb96f67ae3ace4826fb0d655240316d2bd3149ade545c917080ec"
+  },
+  "files": [
+    "source_check.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "afb16cf849db0dee1ff19cd884a7c5e5e4af9ebf5b6f00bb898909a68f0a9ebc",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.reddit.com/r/StableDiffusion/comments/1x0h9ye/i_adapted_the_loopeddit_concept_into_a_tiny_anime/"
+  },
+  "plan": {
+    "claim": "The source reports Loop 4 Clean PSNR is 42.480 and Loop 1 Clean PSNR is 41.885 at the 24k checkpoint.",
+    "evidence_case": {
+      "expected": 0.5949999999999989,
+      "inputs": {
+        "after": 42.48,
+        "before": 41.885
+      },
+      "operation": "numeric_delta"
+    },
+    "experiment": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MC41OTQ5OTk5OTk5OTk5OTg5LCJpbnB1dHMiOnsiYWZ0ZXIiOjQyLjQ4LCJiZWZvcmUiOjQxLjg4NX0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MC41OTQ5OTk5OTk5OTk5OTg5LCJpbnB1dHMiOnsiYWZ0ZXIiOjQyLjQ4LCJiZWZvcmUiOjQxLjg4NX0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "license": "open source",
+    "source_commit": "sha256:eaca129ad8bdffa20407c9c3f2266d9a62286ba645dfea034fbc2abbdaa4b14d",
+    "success_condition": "Calculate the Clean PSNR difference from before 41.885 to after 42.480.",
+    "track": "reproduction"
+  },
+  "record_id": "result-c163de328bec",
+  "source": {
+    "identity": "reddit:t3_1x0h9ye",
+    "summary": "r/StableDiffusion: I adapted the Looped-DiT concept into a tiny anime upscaler (Baikal LoopSR x2) [ComfyUI / Weights]\nI\u2019ve been experimenting with a small anime/illustration upscaler called **Baikal LoopSR x2**, and the results turned out way better than I expected.\n\nThe main question was: what happens if you take the recurrent/shared-block concept from Looped-DiT and apply it to a direct RGB restoration model?\n\nJust to be clear: this isn't diffusion, and I\u2019m not claiming it beats established SOTA upscalers. It was mostly an experiment to see if weight-shared recurrent transformer blocks could do real work in super-resolution.\n\n**Architecture highlights:**\n- Direct RGB -> RGB restoration\n- Bicubic residual connection\n- 2 pre-blocks, 4 shared middle blocks reused for 4 recurrent passes, 2 post-blocks\n- XSA strictly inside the shared recurrent stage\n- Deep supervision on intermediate loop outputs\n- PixelShuffle for 2x reconstruction\n- **Only ~3.5M unique parameters**\n\nWhat surprised me most is that looping actually works as intended. Instead of the recurrent passes collapsing to nearly the same result, each iteration consistently improves the reconstruction.\n\nHere is how the metrics scale across passes at the 24k checkpoint:\n\n| Pass | Clean PSNR | Degraded PSNR |\n| :--- | :--- | :--- |\n| Loop 1 | 41.885 | 39.610 |\n| Loop 2 | 42.266 (+0.38) | 39.952 (+0.34) |\n| Loop 3 | 42.414 (+0.15) | 40.098 (+0.15) |\n| **Loop 4** | **42.480 (+0.07)** | **40.162 (+0.06)** |\n\n*Final SSIM: 0.9841 (Clean) / 0.9761 (Degraded). Total gain from Loop 1 to 4 is around +0.55\u20130.60 dB.*\n\nTake the synthetic validation numbers with a grain of salt \u2014 they\u2019re mainly useful for tracking this specific model and comparing the recurrent passes, not as a direct benchmark against other SR models.\n\nVisually though, I\u2019m very happy with it. Anime hair, thin line art, eyes, and flat fills look quite crisp. Compared to my previous SwinFIR model trained with VGG/perceptual loss, this produces far less crunchy unwanted texture and noise.\n\n*(Attached some before/after comparisons to the post.)*\n\n**Training details:**\n- Trained from scratch on 41,893 anime/illustration images\n- Stopped at 24k optimizer updates (effective batch size 16)\n- Trained locally on a single RTX 4070 Ti SUPER 16GB\n- BF16 + `torch.compile`\n- VRAM usage stayed around 9.6\u20139.7 GB\n\nEverything is open source, including the training code, configs, and technical notes:\n\n- **ComfyUI node:** https://github.com/SnJake/ComfyUI-Baikal-Anime\n- **Model weights:** https://huggingface.co/SnJake/Baikal-Anime-Upscaler\n\nThe custom node is available through **ComfyUI Manager**, or it can be installed manually via git. The loader can fetch the weights automatically. You can choose between **1 and 4 loops** directly in the node to trade speed for reconstruction quality.\n\nSince the 16GB card still had some VRAM headroom left, I\u2019m thinking about scaling the architecture up locally, or maybe renting an RTX PRO 6000 Blackwell 96GB on RunPod for a much larger run.\n\nCurious to hear your thoughts or see your test results!",
+    "title": "r/StableDiffusion: I adapted the Looped-DiT concept into a tiny anime upscaler (Baikal LoopSR x2) [ComfyUI / Weights]",
+    "url": "https://www.reddit.com/r/StableDiffusion/comments/1x0h9ye/i_adapted_the_loopeddit_concept_into_a_tiny_anime/"
+  },
+  "workday": "2026-10-09"
+}
