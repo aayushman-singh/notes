@@ -1,0 +1,4 @@
+[stdout]
+{"observed":-570}
+
+[stderr]
