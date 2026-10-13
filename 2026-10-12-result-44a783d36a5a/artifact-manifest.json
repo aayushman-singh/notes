@@ -1,0 +1,56 @@
+{
+  "experiment": {
+    "command": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7Im1heGltdW0iOjE2LCJtaW5pbXVtIjo0LCJ2YWx1ZSI6NH0sIm9wZXJhdGlvbiI6ImJvdW5kYXJ5X2NvbXBhcmUifQ=='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7Im1heGltdW0iOjE2LCJtaW5pbXVtIjo0LCJ2YWx1ZSI6NH0sIm9wZXJhdGlvbiI6ImJvdW5kYXJ5X2NvbXBhcmUifQ=='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "exit_code": 0,
+    "summary": "{\"observed\":true}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "52251be18a8fbf02ec9263e579e52be8b6c89c189658c8f1e06022c1b3749238",
+    "captured-output.txt": "77309bf57e0a5372a73c34f03cecd0788d233c986e7eb9df4df5d339282da28e",
+    "result-metadata.json": "0db7b6a0e26990489de2f5ee339d9257aaec637ebd829fff050496d5eb0cf4a5",
+    "result.json": "c88b2552ba6afadbb564369054d68ebfd85aa0333dae004fe69cc2eb4f1e4662",
+    "source-license.json": "53b58089f54070985ecf2c10358ef8dd4bacb8b102007a6a5f436bc350e94629",
+    "source_check.py": "7a78e5ed667002777f828d120f3905bdb3216142d9ebd665f880c09e9f27d042",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "ed485b7f34e13c070257ded1e92e1fff3c7804f657d99093fc4d83b44ff378bf",
+    "verify.sh": "f830eb86d16cb96f67ae3ace4826fb0d655240316d2bd3149ade545c917080ec"
+  },
+  "files": [
+    "source_check.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "3c952ea486fa5d31f50d9d878dc29a06679e0d286b756b21e9eadec88387aaed",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.reddit.com/r/LocalLLaMA/comments/1x47taj/openbmbminicpmv4735ba3b/"
+  },
+  "plan": {
+    "claim": "The source reports MiniCPM-V 4.7 supports mixed 4x/16x visual token compression for balancing detail and cost.",
+    "evidence_case": {
+      "expected": true,
+      "inputs": {
+        "maximum": 16,
+        "minimum": 4,
+        "value": 4
+      },
+      "operation": "boundary_compare"
+    },
+    "experiment": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7Im1heGltdW0iOjE2LCJtaW5pbXVtIjo0LCJ2YWx1ZSI6NH0sIm9wZXJhdGlvbiI6ImJvdW5kYXJ5X2NvbXBhcmUifQ=='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7Im1heGltdW0iOjE2LCJtaW5pbXVtIjo0LCJ2YWx1ZSI6NH0sIm9wZXJhdGlvbiI6ImJvdW5kYXJ5X2NvbXBhcmUifQ=='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "license": "source facts only",
+    "source_commit": "sha256:c56468151326f8222511c22d5fa41944fc0dd7ca9480724d68e36e1112096920",
+    "success_condition": "Confirm the lower mixed visual token compression factor of 4 lies within the stated 4x to 16x range.",
+    "track": "integration"
+  },
+  "record_id": "result-44a783d36a5a",
+  "source": {
+    "identity": "reddit:t3_1x47taj",
+    "summary": "r/LocalLLaMA: openbmb/MiniCPM-V-4.7-35B-A3B\ngguf's: [https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B-gguf](https://huggingface.co/openbmb/MiniCPM-V-4.7-35B-A3B-gguf)\n\n\"**MiniCPM-V 4.7** is the latest model in the MiniCPM-V series, available in a **35B-A3B** variant, with **35B-A3B being the first MoE model in the MiniCPM-V series**. It builds on the family's single-image, multi-image, and video understanding capabilities, combining stronger foundation capabilities with efficient visual encoding and on-device inference. Notable features of MiniCPM-V 4.7 include:\n\n* \ud83d\udcf1 **The First Open-Source MoE Model with Lossless, Smooth On-Device Inference.** With our [**Lookahead Expert Scheduling (LES)**](https://github.com/tc-mb/llama.cpp-omni/blob/master/docs/les/lookahead-expert-scheduling.md) technique introduced alongside MiniCPM-V 4.7, combined with fine-grained layer-wise quantization and DSpark speculative sampling integration, MiniCPM-V 4.7 35B-A3B becomes the **first open-source MoE model to run smoothly on-device without compromising performance**, achieving a decoding speed of **13+ tokens/s on iPhone 17 Pro Max**.\n* \ud83d\udd25 **A New Pareto Frontier in Performance and Efficiency.** As model capabilities continue to advance, inference efficiency has become an important measure of a model's value. On resource-constrained devices, delivering the strongest possible capabilities within a limited resource budget calls for higher capability density. The **35B-A3B** variant of MiniCPM-V 4.7 advances the performance\u2013efficiency Pareto frontier for MLLMs. In Instruct mode, 35B-A3B **achieves a higher overall score in less inference time than Qwen3.6 35B-A3B**.\n* \ud83d\ude80 **Efficient Architecture.** Based on the intra-ViT early compression technique from [LLaVA-UHD v4](https://github.com/THUMAI-Lab/LLaVA-UHD-v4), MiniCPM-V 4.7 compresses visual tokens early within the vision encoder, reducing computation in subsequent encoder layers. It also supports **mixed 4x/16x visual token compression**, allowing developers to balance visual detail and inference cost across tasks.\n* \ud83d\udcbb **Broad Platform and Chip Support.** MiniCPM-V 4.7 supports **iOS, Android, and HarmonyOS**, together with open-source on-device deployment support. It also provides **day-0 support for chip platforms from Rockchip, Houmo, Intel, AMD, and Arm**, extending deployment options across mobile and local computing devices.\n* \ud83d\udee0\ufe0f **Developer Friendly.** MiniCPM-V 4.7 supports [inference frameworks](https://github.com/OpenBMB/MiniCPM-o/blob/main/docs/deployment_en.md#supported-inference-and-training-frameworks-and-api) including SGLang, vLLM, llama.cpp, and Ollama, along with [fine-tuning frameworks](https://github.com/OpenBMB/MiniCPM-o/blob/main/docs/deployment_en.md#supported-inference-and-training-frameworks-and-api) including SWIFT and LLaMA-Factory. It provides GGUF, BNB, AWQ, and GPTQ quantized variants and adds **FP8 quantization support**. We also release **Self-Replay Fine-Tuning**, a fine-tuning approach that helps developers extend model capabilities at low cost while reducing forgetting of existing capabilities, making further customization easier.\"",
+    "title": "r/LocalLLaMA: openbmb/MiniCPM-V-4.7-35B-A3B",
+    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x47taj/openbmbminicpmv4735ba3b/"
+  },
+  "workday": "2026-10-12"
+}
