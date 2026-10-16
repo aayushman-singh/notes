@@ -1,0 +1,55 @@
+{
+  "experiment": {
+    "command": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MTAsImlucHV0cyI6eyJhZnRlciI6MTkwLCJiZWZvcmUiOjE4MH0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MTAsImlucHV0cyI6eyJhZnRlciI6MTkwLCJiZWZvcmUiOjE4MH0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "exit_code": 0,
+    "summary": "{\"observed\":10}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "b2e046614b1e15f7c6c11cbff54df468b86fa2008870369a9cb25d89b008e9d0",
+    "captured-output.txt": "8af2ae753716d79d0af3298ff16aff1e3a9fffba49d3e6a447239c99308791bd",
+    "result-metadata.json": "2a47698547e9ae2e8e2c18adbc55c05811ac38fb5e772132f6249c19248fa1ba",
+    "result.json": "e770ee46c7d3c725c5dd203fa24bca17387a4ac415714d1cc0cdbe3a81acd8e8",
+    "source-license.json": "f696e433713f56fc2ac7df56f83ae98bbf6d1d121ed18c6f4e1586e7f33092b0",
+    "source_check.py": "bce6e84b64f7dd5a12b93dbbbda6aa3c9370fb3195b2fd7d5548a578e7ffe4f5",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "f5eadcfe44835c2d22348c6172378905d584c5b332259ac53147eca85d8b6ad6",
+    "verify.sh": "f830eb86d16cb96f67ae3ace4826fb0d655240316d2bd3149ade545c917080ec"
+  },
+  "files": [
+    "source_check.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "166fe0d0c0fed8e296c68086eaeee8e99e5c039fa5e234a635dbf084d8870d60",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.reddit.com/r/StableDiffusion/comments/1x6jui1/h3_longtakenocuts_straight_3mins_video_case_study/"
+  },
+  "plan": {
+    "claim": "The source reports that 19 ten-second H3 clips can form a roughly three-minute video without degradation.",
+    "evidence_case": {
+      "expected": 10,
+      "inputs": {
+        "after": 190,
+        "before": 180
+      },
+      "operation": "numeric_delta"
+    },
+    "experiment": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MTAsImlucHV0cyI6eyJhZnRlciI6MTkwLCJiZWZvcmUiOjE4MH0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6MTAsImlucHV0cyI6eyJhZnRlciI6MTkwLCJiZWZvcmUiOjE4MH0sIm9wZXJhdGlvbiI6Im51bWVyaWNfZGVsdGEifQ=='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "license": "Source facts only; no source code copied.",
+    "source_commit": "sha256:fc35802f902a8ba4347a33bc08492c0359c8af8e46a4a58e5f097b14bedc0a96",
+    "success_condition": "Calculate the difference between 19 ten-second clips and a three-minute target.",
+    "track": "reproduction"
+  },
+  "record_id": "result-7d08a48254a2",
+  "source": {
+    "identity": "reddit:t3_1x6jui1",
+    "summary": "r/StableDiffusion: [ H3 ] LongTakeNoCuts - straight 3mins video case study.\nHey all, another video based on my LongTakeNoCuts nodes and workaround\n\n[https://github.com/xyzDist/H3-LongTakeNoCuts](https://github.com/xyzDist/H3-LongTakeNoCuts)\n\nVideo: [https://www.youtube.com/watch?v=Ktp9U1JI-LA](https://www.youtube.com/watch?v=Ktp9U1JI-LA)\n\nMy YT: [https://www.youtube.com/@noiseflowAI](https://www.youtube.com/@noiseflowAI)\n\n\\* Yes, she is singing in korean but in Japan, don't ask me why. \ud83d\ude04\n\ndetails:\n\n* 1 character reference image + ref2va workflow + motion context, some of my nodes.\n* hybrid model b20-49\n* kitchen attention, no lora, 10 step\n* input audio, some silly lyrics then generate a song in SUNO\n* 19 \\* 10s clips, total around 3mins length\n* 0.7mp resolution, each clip gen time about 11mins (base 10 step gen + refine 5 step resample)\n* I stitch clips in post by CapCut. much simpler and easier than Davinci Resolve\n* color grade in post, maybe too much on lowering the contrast.\n\napply same idea as my workaround refine sample, but this time, add some tweak to it, I used character masking, so it only refine on the character, as this is a moving shot, the background is fine without refining.\n\nIf I don't refine the character, it won't completely degrade, but it will drift and get cooked into an ugly face.\n\nSome issues and findings:\n\n* H3 will be lazy if the seed noise can't blend well with previous latent, for me about 3 out of 10 shots it will do the hard cut instead of contiune camera movement, I just need to dice seed and lock it for the shot.\n* occasionally some brightness flicker comes from motion-context\n* I spend lots of time to figure why H3 ref2va face is so contrast, the dark area is just pure black without details, if you using turbo lora and higher step it will be even worst.....\n* There is a 'fizgig H3 tweak' node, it can make the face and video softer\n   * [https://www.reddit.com/r/StableDiffusion/comments/1wpw247/comfyuifizgigh3tweaks/](https://www.reddit.com/r/StableDiffusion/comments/1wpw247/comfyuifizgigh3tweaks/)\n   * I only use on the base gen (not refine sample)\n      * details and contrast = -0.1\n      * mode = per-frame\n      * scene variation = 0.1\n* the signboards and all the japanese in BG is nonsense and many other error here and there.\n* the camera pan out and pan back BG change issue I fixed by extract some image in video for adding as reference image, It worked even better than I expected, and surprisingly straight forward.\n* I can do a upscale latent, I will try it later.\n\nSo **Conclusion**, we can generate H3 long duration without degradation, issue sorted out.\n\nYou can do whatever interesting cinematic/action long duration oner shot.\n\nEdit: I need to update my github",
+    "title": "r/StableDiffusion: [ H3 ] LongTakeNoCuts - straight 3mins video case study.",
+    "url": "https://www.reddit.com/r/StableDiffusion/comments/1x6jui1/h3_longtakenocuts_straight_3mins_video_case_study/"
+  },
+  "workday": "2026-08-14"
+}
