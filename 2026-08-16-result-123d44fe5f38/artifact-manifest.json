@@ -1,0 +1,55 @@
+{
+  "experiment": {
+    "command": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6NS41LCJpbnB1dHMiOnsiYWZ0ZXIiOjMwLCJiZWZvcmUiOjI0LjV9LCJvcGVyYXRpb24iOiJudW1lcmljX2RlbHRhIn0='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6NS41LCJpbnB1dHMiOnsiYWZ0ZXIiOjMwLCJiZWZvcmUiOjI0LjV9LCJvcGVyYXRpb24iOiJudW1lcmljX2RlbHRhIn0='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "exit_code": 0,
+    "summary": "{\"observed\":5.5}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "bd3c5f221ad08a93e5f82dbbdd520e4934c8f6b364c2d455b77875403d1eeda6",
+    "captured-output.txt": "b38b254eab4f36490d23e9182e55ff2c217352fc558844ec37e0577a7b6ef7ae",
+    "result-metadata.json": "a57995db26447ab1ce1cb4822a18ff9a6ddc63e8e5d32732492880e1a5ef85ea",
+    "result.json": "2042b995dac751ed10f602f802099523e0d22517592a1fedc0f486adfaeda52f",
+    "source-license.json": "0572f6d3dade88dc0bffeb82ef38029b4d9165f856c663c54ffa8cccbee35f39",
+    "source_check.py": "ea118cbfec4077d4fde0b74dbbfe1559deb6b03aff54a9260b30f57cba808501",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "70be4f5e657894335233008227437a9490ccefb6b548b352875f5d7f7e1ecfc3",
+    "verify.sh": "f830eb86d16cb96f67ae3ace4826fb0d655240316d2bd3149ade545c917080ec"
+  },
+  "files": [
+    "source_check.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "14391f8c3fcacaff388d285b186aa168374a508bd8971a218bb6fb511be1a2d4",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://www.reddit.com/r/LocalLLaMA/comments/1x6stod/what_a_300_35w_snapdragon_mini_pc_can_actually_do/"
+  },
+  "plan": {
+    "claim": "The source reports that a \u00a3299.99 Snapdragon mini PC ran a 35B coder at 24.5 tok/s, or about 30 tok/s with MTP.",
+    "evidence_case": {
+      "expected": 5.5,
+      "inputs": {
+        "after": 30,
+        "before": 24.5
+      },
+      "operation": "numeric_delta"
+    },
+    "experiment": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6NS41LCJpbnB1dHMiOnsiYWZ0ZXIiOjMwLCJiZWZvcmUiOjI0LjV9LCJvcGVyYXRpb24iOiJudW1lcmljX2RlbHRhIn0='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6NS41LCJpbnB1dHMiOnsiYWZ0ZXIiOjMwLCJiZWZvcmUiOjI0LjV9LCJvcGVyYXRpb24iOiJudW1lcmljX2RlbHRhIn0='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "license": "Source facts only; no source code copied.",
+    "source_commit": "sha256:44e03a0bc6e561f6203c1778bad81b0c5555704db00b50e174d2754a4675c513",
+    "success_condition": "Calculate the numeric increase from 24.5 tok/s to 30 tok/s.",
+    "track": "reproduction"
+  },
+  "record_id": "result-123d44fe5f38",
+  "source": {
+    "identity": "reddit:t3_1x6stod",
+    "summary": "r/LocalLLaMA: What a \u00a3300, 35W Snapdragon mini PC can actually do \ud83d\udc40: 35B coder at ~30 tok/s, and an 80B model that doesnt even fit in RAM running at 17 tok/s\n\u00a3299.99 Lenovo IdeaCentre Mini (Snapdragon X1-26-100, 32GB, CPU only):\n\n\\- Qwen3.6 35B A3B coder: reads \\~118 tok/s, writes 24.5, \\~30 with MTP\n\n\\- Qwen3-Next 80B A3B: 17-18 tok/s writes with MTP\n\nHow I got here...\n\nSo I bought one of these boxes to test if software  at work would run on ARM Windows - and then it was sitting there, but I was sufficiently impressed for the price (including taxes), that i decided in my ADHD fuelled boredom to buy one for myself to see if cheap ARM is actually usable for local models.\n\nThe GPU is an Adreno X1-45 and nothing useful runs on it for LLMs yet, and so far the NPU just sits there, so this is all CPU...\n\nllama.cpp, 512 token prompt, 8 threads (read = prompt, write = generation):\n\n\\- coder (Q4\\_0 35b-a3b): read \\~118, write 24.5, with MTP 29-33\n\n\\- Gemma 26B: read 134, write 29.5, (need to test MTP, I've only had the box.\n\nThen I wanted to see how far I could push it. RAM is the wall on 32GB, so I went looking at the recently released Janas (github.com/prabanta-dev/janas). It keeps a RAM cache of the MoE experts and streams the rest off the NVMe, but its x86 only. So I re-coded it for ARM: NEON kernels for every quant format, i8mm, etc, (all tested bit exact against the scalar reference code, Windows ARM64 and Linux. Will submit it as PRs on GitHub soon.)\n\nJanas, same settings:\n\n\\- coder: read \\~60, write 17.2, with MTP 29-31\n\n\\- Gemma 26B: read 115, write 23.5, with MTP 32-34\n\n\\- 80B: read (TBC as I don't trust my results), plain write 9.8, with MTP 17-18\n\nllama.cpp still wins on read and plain write, but with MTP Janas matches or beats it, and it does it in a fraction of the RAM.\n\nI then squeezed the coder's expert cache to 12GB and it still wrote at 24 tok/s - so even a 16gb snapdragon could rin 35b-a3b \ud83d\udc40.. And this box runs an 80B that llama.cpp cant even load!\n\nThen I thought Id try connecting the two I had access to (mine and my work's dev box) together over USB4. Work in progress, will report back - but initial results are promising and I've had a 122b qwen running already - just working on streamlining my parallel experts build.\n\nI dunno about you guys and gals, I mean I don't have extensive experience with local LLMs and I certainly haven't played with ARM before but I found this pretty surprising, and not half bad for \u00a3300 with no GPU. Happy to test stuff on it when I get chance if anyone wants more numbers... But I can't see a cheaper way rn of getting 32gb of LPDDR5 rn, and only \\~35ishW of power draw... Thoughts and feedback welcome \ud83d\ude43\ud83d\udc4d",
+    "title": "r/LocalLLaMA: What a \u00a3300, 35W Snapdragon mini PC can actually do \ud83d\udc40: 35B coder at ~30 tok/s, and an 80B model that doesnt even fit in RAM running at 17 tok/s",
+    "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x6stod/what_a_300_35w_snapdragon_mini_pc_can_actually_do/"
+  },
+  "workday": "2026-08-16"
+}
