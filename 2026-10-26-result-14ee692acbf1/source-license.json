@@ -1,0 +1,14 @@
+{
+  "decision": "approved",
+  "evidence": {
+    "source": "https://twitter.com/mike64_t/status/2114150399406202896"
+  },
+  "license": "Source facts only; no source code copied.",
+  "source": {
+    "identity": "hackernews:50230181",
+    "summary": "Post Log in Sign up Post Log in Sign up mike on X: \"Ok, I just checked this, and its literally running a freaking TensorFlow Lite model on 960\u00d7540 images with INT8 quantization every couple of seconds in an attempt to figure out what game you are playing. It's literally called \"alex.tflite\" and its literally AlexNet and seems to follow torchvision.models.alexnet. As far as I can tell this does some strange nearest neighbor feature comparisons against a DB and literally doesn't work 99% of the time, you love to see your CPU get wasted every other second by this thing though. It also just seems to dump its results into the void because the consent gate comes later. Anyways, here's the tf model graph and some dumped captures.\" mike @mike64_t Ok, I just checked this, and its literally running a freaking TensorFlow Lite model on 960\u00d7540 images with INT8 quantization every couple of seconds in an attempt to figure out what game you are playing. It's literally called \"alex.tflite\" and its literally AlexNet and seems to follow torchvision.models.alexnet. As far as I can tell this does some strange nearest neighbor feature comparisons against a DB and literally doesn't work 99% of the time, you love to see your CPU get wasted every other second by this thing though. It also just seems to dump its results into the void because the consent gate comes later. Anyways, here's the tf model graph and some dumped captures. log4j @log4j Oct 24 live-tweeting on samsung findings were fun. i'll let my agents give it a bit more time, but this document is already the most comprehensive breakdown of some key concerns of tizen i've seen run on a live device. it takes like a good while for me just to scroll through it Last edited 12:21 AM \u00b7 Oct 25, 2026 Opens edit history \u00b7 56.1K Views 24 106 1.3K 453",
+    "title": "Samsung running a TensorFlow lite model on 960x540 image to track you",
+    "url": "https://twitter.com/mike64_t/status/2114150399406202896"
+  },
+  "source_commit": "sha256:205311149a2e8976751712a23c46934627c17150bbf1f338fb2e5ce8783e9ffa"
+}

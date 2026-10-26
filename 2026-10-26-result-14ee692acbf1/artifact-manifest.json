@@ -1,0 +1,55 @@
+{
+  "experiment": {
+    "command": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7InBhdHRlcm4iOiJeYWxleFxcLnRmbGl0ZSQiLCJ0ZXh0IjoiYWxleC50ZmxpdGUifSwib3BlcmF0aW9uIjoicmVnZXhfbWF0Y2gifQ=='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7InBhdHRlcm4iOiJeYWxleFxcLnRmbGl0ZSQiLCJ0ZXh0IjoiYWxleC50ZmxpdGUifSwib3BlcmF0aW9uIjoicmVnZXhfbWF0Y2gifQ=='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "exit_code": 0,
+    "summary": "{\"observed\":true}"
+  },
+  "file_hashes": {
+    ".gitattributes": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+    "README.md": "a184da8ed69c326851dccd67aef043362a824bd7906bdd888ca0b8d28ad5e1ef",
+    "captured-output.txt": "77309bf57e0a5372a73c34f03cecd0788d233c986e7eb9df4df5d339282da28e",
+    "result-metadata.json": "f6880726598a8673767eed6d5824b8eb072eee4437ce32191951c8673c0f02d1",
+    "result.json": "36ef2b35d6c38af72f80e80a60e02fee321f16c83ccd599fa3e2ef8d7573d39d",
+    "source-license.json": "9efc28117b849a1330658d8378a4a169070e030775f61a64e2b313d9951ca9f5",
+    "source_check.py": "376f156585c4bfa9b6505cdc4463d85f3f1c48a5f9cda3b43e45d15b1dc049cf",
+    "stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout.txt": "ed485b7f34e13c070257ded1e92e1fff3c7804f657d99093fc4d83b44ff378bf",
+    "verify.sh": "f830eb86d16cb96f67ae3ace4826fb0d655240316d2bd3149ade545c917080ec"
+  },
+  "files": [
+    "source_check.py",
+    "stdout.txt",
+    "stderr.txt",
+    "result-metadata.json",
+    ".gitattributes"
+  ],
+  "fingerprint": "b756e755f5cd81604048e7e81425adeecc480f8adc72a9445d113f91025951b4",
+  "license_decision": "approved",
+  "license_evidence": {
+    "source": "https://twitter.com/mike64_t/status/2114150399406202896"
+  },
+  "plan": {
+    "claim": "The source reports that Samsung runs an INT8 TensorFlow Lite AlexNet model on 960\u00d7540 images every few seconds to identify games.",
+    "evidence_case": {
+      "expected": true,
+      "inputs": {
+        "pattern": "^alex\\.tflite$",
+        "text": "alex.tflite"
+      },
+      "operation": "regex_match"
+    },
+    "experiment": "python -c 'from pathlib import Path\nCASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7InBhdHRlcm4iOiJeYWxleFxcLnRmbGl0ZSQiLCJ0ZXh0IjoiYWxleC50ZmxpdGUifSwib3BlcmF0aW9uIjoicmVnZXhfbWF0Y2gifQ=='\"'\"'\nprogram = \"CASE_B64 = '\"'\"'eyJleHBlY3RlZCI6dHJ1ZSwiaW5wdXRzIjp7InBhdHRlcm4iOiJeYWxleFxcLnRmbGl0ZSQiLCJ0ZXh0IjoiYWxleC50ZmxpdGUifSwib3BlcmF0aW9uIjoicmVnZXhfbWF0Y2gifQ=='\"'\"'\\nimport base64\\nimport json\\nimport re\\n\\ncase = json.loads(base64.b64decode(CASE_B64).decode(\\\"utf-8\\\"))\\noperation = case[\\\"operation\\\"]\\ninputs = case[\\\"inputs\\\"]\\nif operation == \\\"json_value\\\":\\n    observed = inputs[\\\"document\\\"]\\n    for step in inputs[\\\"path\\\"]:\\n        observed = observed[step]\\nelif operation == \\\"regex_match\\\":\\n    observed = re.search(inputs[\\\"pattern\\\"], inputs[\\\"text\\\"]) is not None\\nelif operation == \\\"stable_sort\\\":\\n    observed = sorted(inputs[\\\"values\\\"])\\nelif operation == \\\"boundary_compare\\\":\\n    observed = inputs[\\\"minimum\\\"] <= inputs[\\\"value\\\"] <= inputs[\\\"maximum\\\"]\\nelif operation == \\\"numeric_delta\\\":\\n    observed = inputs[\\\"after\\\"] - inputs[\\\"before\\\"]\\nelif operation == \\\"percentage\\\":\\n    observed = round(inputs[\\\"part\\\"] / inputs[\\\"whole\\\"] * 100, inputs[\\\"precision\\\"])\\nelse:\\n    raise RuntimeError(\\\"unsupported source check\\\")\\nif observed != case[\\\"expected\\\"]:\\n    raise RuntimeError(\\\"observed result differs from expected result\\\")\\nprint(json.dumps({\\\"observed\\\": observed}, sort_keys=True, separators=(\\\",\\\", \\\":\\\")))\\n\"\nPath('\"'\"'/record/source_check.py'\"'\"').write_text(program, encoding='\"'\"'utf-8'\"'\"')\nscope = {'\"'\"'CASE_B64'\"'\"': CASE_B64}\nexec(compile(program, '\"'\"'source_check.py'\"'\"', '\"'\"'exec'\"'\"'), scope)\n'",
+    "license": "Source facts only; no source code copied.",
+    "source_commit": "sha256:205311149a2e8976751712a23c46934627c17150bbf1f338fb2e5ce8783e9ffa",
+    "success_condition": "Check whether the reported model filename is exactly alex.tflite.",
+    "track": "reproduction"
+  },
+  "record_id": "result-14ee692acbf1",
+  "source": {
+    "identity": "hackernews:50230181",
+    "summary": "Post Log in Sign up Post Log in Sign up mike on X: \"Ok, I just checked this, and its literally running a freaking TensorFlow Lite model on 960\u00d7540 images with INT8 quantization every couple of seconds in an attempt to figure out what game you are playing. It's literally called \"alex.tflite\" and its literally AlexNet and seems to follow torchvision.models.alexnet. As far as I can tell this does some strange nearest neighbor feature comparisons against a DB and literally doesn't work 99% of the time, you love to see your CPU get wasted every other second by this thing though. It also just seems to dump its results into the void because the consent gate comes later. Anyways, here's the tf model graph and some dumped captures.\" mike @mike64_t Ok, I just checked this, and its literally running a freaking TensorFlow Lite model on 960\u00d7540 images with INT8 quantization every couple of seconds in an attempt to figure out what game you are playing. It's literally called \"alex.tflite\" and its literally AlexNet and seems to follow torchvision.models.alexnet. As far as I can tell this does some strange nearest neighbor feature comparisons against a DB and literally doesn't work 99% of the time, you love to see your CPU get wasted every other second by this thing though. It also just seems to dump its results into the void because the consent gate comes later. Anyways, here's the tf model graph and some dumped captures. log4j @log4j Oct 24 live-tweeting on samsung findings were fun. i'll let my agents give it a bit more time, but this document is already the most comprehensive breakdown of some key concerns of tizen i've seen run on a live device. it takes like a good while for me just to scroll through it Last edited 12:21 AM \u00b7 Oct 25, 2026 Opens edit history \u00b7 56.1K Views 24 106 1.3K 453",
+    "title": "Samsung running a TensorFlow lite model on 960x540 image to track you",
+    "url": "https://twitter.com/mike64_t/status/2114150399406202896"
+  },
+  "workday": "2026-10-26"
+}
