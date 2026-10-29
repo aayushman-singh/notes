@@ -1,0 +1,4 @@
+[stdout]
+{"observed":12288}
+
+[stderr]
